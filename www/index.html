@@ -15,13 +15,25 @@
     // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
     const db = "m";
 
-    function searchName() {  let name = $("#name").val(); 
+    function searchName() {  
+    let name = $("#name").val(); 
     let TestDataClass = ncmb.DataStore(db); 
     TestDataClass .equalTo("name", name) 
     .fetchAll() 
     .then(function(results) { showResults(results); 
     })
     }
+
+    function searchLevel() { 
+        let level = parseInt($("#level").val()); 
+        let TestDataClass = ncmb.DataStore(db); 
+        TestDataClass 
+        .equalTo("level", level) 
+        .fetchAll() 
+        .then(function(results) { 
+            showResults(results);
+            })
+         }
 
     function fetchAll() {
       let TestDataClass = ncmb.DataStore(db);
